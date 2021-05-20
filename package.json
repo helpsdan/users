@@ -1,0 +1,35 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helpsdan/users.git"
+  },
+  "author": "Dani Alves - Dev na Web",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helpsdan/users/issues"
+  },
+  "homepage": "https://github.com/helpsdan/users#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.33",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "aws-sdk": "^2.911.0",
+    "jest": "^26.6.3",
+    "serverless": "^2.43.0",
+    "serverless-offline": "^7.0.0",
+    "serverless-dynamodb-local": "^0.2.39"
+  }
+}
