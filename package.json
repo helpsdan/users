@@ -18,6 +18,7 @@
   "homepage": "https://github.com/helpsdan/users#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "node-uuid": "^1.4.8",
     "serverless-http": "^2.7.0"
   },
   "devDependencies": {
