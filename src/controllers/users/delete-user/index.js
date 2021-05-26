@@ -1,5 +1,10 @@
 const UsersModel = require('../../../services/users/delete-user/index')
 
-exports.execute = (req, res) => {
+const execute = (req, res) => {
   UsersModel.deleteUser(req, res)
+}
+
+module.exports = {
+  handler: execute,  
+  execute
 }

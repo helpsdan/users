@@ -1,18 +1,10 @@
 const AWS = require('aws-sdk');
 AWS.config.update({ region: 'us-east-1' })
 
-let options = {}
-if(process.env.IS_OFFLINE){
-  options = {
-    region: "localhost",
-    endpoint: "http://localhost:8000"
-  }
-}
-
 const USERS_TABLE = 'users-table-dev';
-const dynamoDb = new AWS.DynamoDB.DocumentClient(options);
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-exports.deleteUser = (req, res) => {
+exports.deleteUser = async (req, res) => {
     try {
         const params = {
             TableName: USERS_TABLE,
@@ -21,9 +13,9 @@ exports.deleteUser = (req, res) => {
             },
         }
       await dynamoDb.delete(params).promise()
-      res.status(204)
+      res.status(204).send()
     } catch (error) {
       console.log(error);
-      res.status(400).json({ error: 'Could not create user' })
+      res.status(400).json({ error: 'Could not delete user' })
     }
 }

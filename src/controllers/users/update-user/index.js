@@ -1,5 +1,10 @@
 const UsersModel = require('../../../services/users/update-user/index')
 
-exports.execute = (req, res) => {
+const execute = (req, res) => {
   UsersModel.updateUser(req, res)
+}
+
+module.exports = {
+  handler: execute,  
+  execute
 }

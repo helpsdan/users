@@ -1,5 +1,10 @@
 const UsersModel = require('../../../services/users/get-user/index')
 
-exports.execute = (req, res) => {
+const execute = (req, res) => {
   UsersModel.getUser(req, res)
+}
+
+module.exports = {
+  handler: execute,  
+  execute
 }

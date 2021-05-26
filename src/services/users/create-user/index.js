@@ -1,26 +1,20 @@
-const { v4: uuidv4 } = require('uuid')
-
+const { v4: uuidv4 } = require('uuid');
 const AWS = require('aws-sdk');
 AWS.config.update({ region: 'us-east-1' })
 
-let options = {}
-if(process.env.IS_OFFLINE){
-  options = {
-    region: "localhost",
-    endpoint: "http://localhost:8000"
-  }
-}
-
 const USERS_TABLE = 'users-table-dev';
-const dynamoDb = new AWS.DynamoDB.DocumentClient(options);
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-exports.createUser = async (req, res) => {
+exports.createUser = async (req, res, next) => {
     const { name } = req.body;
+
+    const userId = uuidv4();
+    console.log(userId)
     try {
       const params = {
         TableName: USERS_TABLE,
         Item: {
-          userId: uuidv4(),
+          userId: userId,
           name: name,
         },
       };
